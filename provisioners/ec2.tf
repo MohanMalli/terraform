@@ -6,20 +6,20 @@ resource "aws_instance" "roboshop" {
  tags = var.ec2_tags
  
  provisioner "local-exec" {
-  command = "$(self.private_ip) > inventory"
+  command = "echo ${self.private_ip} > inventory"
   on_failure = continue #ignoring errors
  }
 
- provisioner "local-exec" {
+  provisioner "local-exec" {
   command = "echo 'instance is destroyed'"
   when = destroy
  }
 
- connection {
+/*  connection {
   type     = "ssh"
   user     = "ec2-user"
   password = "DevOps321"
-  host     = self.public_ip
+  host     = self.public_ip  # 'self' references this aws_instance
   }
 
  provisioner "remote-exec" {
@@ -34,7 +34,7 @@ resource "aws_instance" "roboshop" {
   inline = [
     "sudo systemctl stop nginx"
   ]
- }
+ }  */
 }
 
 resource "aws_security_group" "allow_all" {

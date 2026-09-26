@@ -1,23 +1,23 @@
 variable "ami_id" {
-  type         = string
-  default      = "ami-09c813fb71547fc4f"
-  description  =  "AMI ID of joindevops RHEL9"
+  type        = string
+  default     = "ami-0220d79f3f480ecf5"
+  description = "AMI ID of joindevops RHEL9"
 }
 
 variable "instance_type" {
-    default = "t3.micro"
+  default = "t3.micro"
 }
 
 variable "ec2_tags" {
-    type = map(string)
-    default = {
-      Name = "roboshop"
-      Purpose = "variables-demo"
-    }
+  type = map(string)
+  default = {
+    Name    = "roboshop"
+    Purpose = "variables-demo"
+  }
 }
 
 variable "sg_name" {
-  default = "allow_all"  
+  default = "allow_all"
 }
 
 variable "sg_description" {
@@ -29,19 +29,19 @@ variable "from_port" {
 }
 
 variable "to_port" {
-  type = number
+  type    = number
   default = 0
 }
 
 variable "cidr_blocks" {
-  type = list(string)
-  default = ["0.0.0.0/0"] 
+  type    = list(string)
+  default = ["0.0.0.0/0"]
 }
 
 variable "sg_tags" {
-  default = { 
-      Name = "allow_all"
-    }
+  default = {
+    Name = "allow_all"
+  }
 }
 
 variable "environment" {
@@ -49,20 +49,20 @@ variable "environment" {
 }
 
 variable "instances" {
-  /*default = {
-    mongodb = "t3.micro" #each keyword is assigned for every iteration. you will get each.key OR each.value
-    redis = "t3.micro"
-    mysql  = "t3.small"
+ /*  default = {
+    mongodb  = "t3.micro" #each keyword is assigned for every iteration. you will get each.key OR each.value
+    redis    = "t3.micro"
+    mysql    = "t3.small"
     rabbitmq = "t3.micro"
-  }  */
-  default = ["mongodb", "redis", "mysql", "rabbitmq"]
+  } */
+   default = ["mongodb", "redis", "mysql", "rabbitmq"]
 }
 
 
 variable "zone_id" {
-  default = "Z05130911714KBFT4KH1G" 
+  default = "Z02557322UU288MEGS077"
 }
 
 variable "domain_name" {
-  default = "malli.site"
+  default = "malli.sbs"
 }

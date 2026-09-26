@@ -7,7 +7,7 @@ terraform {
   }
 
 backend "s3" {
-  bucket = "84s-remote-site"
+  bucket = "malli-remote-state"
   key    = "provisioners"
   region = "us-east-1"
   encrypt = true
